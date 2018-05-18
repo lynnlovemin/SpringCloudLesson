@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: eurekaclient
+  profiles:
+    active: dev
+  cloud:
+    config:
+      profile: dev #指定配置环境，配置文件如果是多环境则取名类似：config-dev.yml
+      name: eurekaclient #指定配置文件名字（多个配置文件以英文逗号隔开）
+      label: master #git仓库分支名
+      discovery:
+        enabled: true
+        serviceId: config #连接的配置中心名字（applicaiton.name）
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
