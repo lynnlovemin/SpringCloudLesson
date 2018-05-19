@@ -12,7 +12,7 @@ spring:
           uri: https://github.com/lynnlovemin/SpringCloudLesson.git #配置git仓库地址
           searchPaths: 第09课/config #配置仓库路径
           username: lynnlovemin #访问git仓库的用户名
-          password: liyi8803011 #访问git仓库的用户密码
+          password: liyi880301 #访问git仓库的用户密码
       label: master #配置仓库的分支
 eureka:
   instance:
