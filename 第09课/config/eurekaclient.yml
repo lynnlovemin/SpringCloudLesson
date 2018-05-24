@@ -7,3 +7,6 @@ server:
 spring:
   application:
     name: eurekaclient
+management:
+  security:
+    enabled: false
