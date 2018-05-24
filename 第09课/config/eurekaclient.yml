@@ -7,7 +7,3 @@ server:
 spring:
   application:
     name: eurekaclient
-management:
-  endpoint:
-    refresh:
-      enabled: true
