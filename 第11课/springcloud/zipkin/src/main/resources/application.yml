@@ -6,3 +6,11 @@ spring:
     port: 5672
     username: guest
     password: guest
+  datasource:
+    url: jdbc:mysql://localhost:3306/zipkin?autoReconnect=true
+    username: root
+    password: 1qaz2wsx
+    driverClassName: com.mysql.jdbc.Driver
+zipkin:
+  storage:
+    type: mysql
