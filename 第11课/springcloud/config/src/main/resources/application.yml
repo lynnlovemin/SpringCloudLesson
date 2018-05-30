@@ -1,0 +1,34 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config
+  profiles:
+    active: dev
+  cloud:
+    bus:
+      trace:
+        enable: true
+    config:
+      server:
+        git:
+          uri: https://github.com/lynnlovemin/SpringCloudLesson.git #配置git仓库地址
+          searchPaths: 第09课/config #配置仓库路径
+          username: lynnlovemin #访问git仓库的用户名
+          password: liyi880301 #访问git仓库的用户密码
+      label: master #配置仓库的分支
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  security:
+    enabled: false
