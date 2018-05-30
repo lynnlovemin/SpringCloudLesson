@@ -13,6 +13,7 @@
         <module>gateway</module>
         <module>feign</module>
         <module>config</module>
+        <module>zipkin</module>
     </modules>
     <packaging>pom</packaging>
 
