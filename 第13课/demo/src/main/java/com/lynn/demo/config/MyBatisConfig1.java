@@ -16,13 +16,13 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @SpringBootConfiguration
-@MapperScan(basePackages = "com.lynn.demo.test01", sqlSessionTemplateRef = "testSqlSessionTemplate")
-public class TestMyBatisConfig1 {
+@MapperScan(basePackages = "com.lynn.demo.test01", sqlSessionTemplateRef = "sqlSessionTemplate")
+public class MyBatisConfig1 {
 
     // 配置数据源
     @Primary
-    @Bean(name = "testDataSource")
-    public DataSource testDataSource(DBConfig1 testConfig) throws SQLException {
+    @Bean(name = "dataSource")
+    public DataSource dataSource(DBConfig1 testConfig) throws SQLException {
         MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
         mysqlXaDataSource.setUrl(testConfig.getUrl());
         mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
@@ -45,8 +45,8 @@ public class TestMyBatisConfig1 {
         return xaDataSource;
     }
     @Primary
-    @Bean(name = "testSqlSessionFactory")
-    public SqlSessionFactory testSqlSessionFactory(@Qualifier("testDataSource") DataSource dataSource)
+    @Bean(name = "sqlSessionFactory")
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource)
             throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
@@ -54,9 +54,9 @@ public class TestMyBatisConfig1 {
     }
 
     @Primary
-    @Bean(name = "testSqlSessionTemplate")
-    public SqlSessionTemplate testSqlSessionTemplate(
-            @Qualifier("testSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    @Bean(name = "sqlSessionTemplate")
+    public SqlSessionTemplate sqlSessionTemplate(
+            @Qualifier("sqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }

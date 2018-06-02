@@ -16,12 +16,12 @@ import java.sql.SQLException;
 
 @SpringBootConfiguration
 //basePackages 最好分开配置 如果放在同一个文件夹可能会报错
-@MapperScan(basePackages = "com.lynn.demo.test02", sqlSessionTemplateRef = "testSqlSessionTemplate2")
-public class TestMyBatisConfig2 {
+@MapperScan(basePackages = "com.lynn.demo.test02", sqlSessionTemplateRef = "sqlSessionTemplate2")
+public class MyBatisConfig2 {
 
     // 配置数据源
-    @Bean(name = "testDataSource2")
-    public DataSource testDataSource(DBConfig2 testConfig) throws SQLException {
+    @Bean(name = "dataSource2")
+    public DataSource dataSource(DBConfig2 testConfig) throws SQLException {
         MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
         mysqlXaDataSource.setUrl(testConfig.getUrl());
         mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
@@ -44,17 +44,17 @@ public class TestMyBatisConfig2 {
         return xaDataSource;
     }
 
-    @Bean(name = "testSqlSessionFactory2")
-    public SqlSessionFactory testSqlSessionFactory(@Qualifier("testDataSource2") DataSource dataSource)
+    @Bean(name = "dqlSessionFactory2")
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource2") DataSource dataSource)
             throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         return bean.getObject();
     }
 
-    @Bean(name = "testSqlSessionTemplate2")
-    public SqlSessionTemplate testSqlSessionTemplate(
-            @Qualifier("testSqlSessionFactory2") SqlSessionFactory sqlSessionFactory) throws Exception {
+    @Bean(name = "sqlSessionTemplate2")
+    public SqlSessionTemplate sqlSessionTemplate(
+            @Qualifier("sqlSessionFactory2") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }
