@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  redis:
+    host: localhost
+    port: 6379
+mysql:
+  datasource:
+    test1:
+      url: jdbc:mysql://localhost:3306/test01?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 1qaz2wsx
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
+    test2:
+      url: jdbc:mysql://localhost:3306/test02?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: 1qaz2wsx
+      minPoolSize: 3
+      maxPoolSize: 25
+      maxLifetime: 20000
+      borrowConnectionTimeout: 30
+      loginTimeout: 30
+      maintenanceInterval: 60
+      maxIdleTime: 60
+      testQuery: select 1
