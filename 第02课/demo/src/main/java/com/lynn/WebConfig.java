@@ -28,13 +28,13 @@ public class WebConfig extends WebMvcConfigurationSupport{
         return new ApiInterceptor();
     }
 
-    @Value("${appKey}")
+    @Value("${oss.appKey}")
     private String appKey;
-    @Value("${appSecret}")
+    @Value("${oss.appSecret}")
     private String appSecret;
-    @Value("${bucket}")
+    @Value("${oss.bucket}")
     private String bucket;
-    @Value("${endPoint}")
+    @Value("${oss.endPoint}")
     private String endPoint;
 
     @Bean
