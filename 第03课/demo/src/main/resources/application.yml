@@ -9,11 +9,3 @@ server:
 spring:
   profiles:
     active: dev
-  http:
-    multipart:
-      max-file-fize: -1
-oss:
-  appKey: 1
-  appSecret: 1
-  bucket: lynn
-  endPoint: https://www.aliyun.com
