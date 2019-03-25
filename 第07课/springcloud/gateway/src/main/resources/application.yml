@@ -1,14 +1,20 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8080
 spring:
   application:
     name: gateway
-zuul:
-  routes:
-    api:
-      path: /api/**
-      serviceId: eurekaclient
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.http.server.reactive: debug
+    org.springframework.web.reactive: debug
+    reactor.ipc.netty: debug
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
