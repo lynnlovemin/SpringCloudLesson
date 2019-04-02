@@ -14,13 +14,19 @@ spring:
           username: lynnlovemin #访问git仓库的用户名
           password: ****** #访问git仓库的用户密码
       label: master #配置仓库的分支
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+    publisherConfirms: true
 eureka:
-  instance:
-    hostname: ${spring.cloud.client.ipAddress}
-    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 management:
-  security:
-    enabled: false
+    endpoints:
+        web:
+            exposure:
+                include: refresh,health,info,bus-refresh
