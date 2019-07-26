@@ -44,7 +44,7 @@ public class MyBatisConfig2 {
         return xaDataSource;
     }
 
-    @Bean(name = "dqlSessionFactory2")
+    @Bean(name = "sqlSessionFactory2")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource2") DataSource dataSource)
             throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
