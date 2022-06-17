@@ -10,7 +10,7 @@
 
     <properties>
         <aspectj.version>1.8.2</aspectj.version>
-        <fastjson.version>1.2.26</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
